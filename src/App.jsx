@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Formulario from "./Formulario";
 
 function App() {
   //1. Memoria: Donde se guardan los datos al venir del servidor
@@ -23,6 +24,7 @@ function App() {
     <>
       <div style={{ padding: "20px", fontFamily: "Arial" }}>
         <h1>Mi diario de entretenimiento</h1>
+        <Formulario />
         {cargando ? (
           <p>Cargando datos...</p>
         ) : (
