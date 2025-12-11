@@ -115,6 +115,7 @@ function Formulario({ alAgregar }) {
             name="imagenURL"
             placeholder="URL de la imagen (Opcional)"
             value={formData.imagenURL}
+            onChange={handleChange}
             style={{ padding: "8px", width: "100%", boxSizing: "border-box" }}
           />
         </div>

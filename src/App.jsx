@@ -8,7 +8,7 @@ function App() {
   const [cargando, setCargando] = useState(true);
 
   //2. Efecto: Se ejecuta una sola vez al iniciar la página.
-  useEffect(() => {
+  const cargarDatos = () => {
     fetch("https://localhost:7215/api/entretenimiento")
       .then((respuesta) => respuesta.json()) // Se convierten los datos a json
       .then((datos) => {
@@ -19,12 +19,18 @@ function App() {
         console.error("Error conectando", error);
         setCargando(false);
       });
-  }, []); // El array vacío significa que solo tiene que hacer una vez al inicio.
+  };
+
+  //* Carga inicial.
+  useEffect(() => {
+    cargarDatos();
+  }, []);
+
   return (
     <>
       <div style={{ padding: "20px", fontFamily: "Arial" }}>
         <h1>Mi diario de entretenimiento</h1>
-        <Formulario />
+        <Formulario alAgregar={cargarDatos} />
         {cargando ? (
           <p>Cargando datos...</p>
         ) : (
